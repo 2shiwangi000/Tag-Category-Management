@@ -53,5 +53,6 @@ export interface ITagCategory {
   subCategories: SubCategories;
   nameStructure: string[];
   createdAt: number;
+  lastUpdatedAt: number;
   deleted: boolean;
 }

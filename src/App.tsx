@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { sampleTagCategories } from "./data/sampleData";
+import type { ITagCategory } from "./interfaces/interfaces";
+import TagCategoryCard from "./components/TagCategoryCard";
+import TagCategoryForm from "./components/TagCategoryForm";
+import styles from "./styles/App.module.scss";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [categories, setCategories] =
+    React.useState<ITagCategory[]>(sampleTagCategories);
+  const [editing, setEditing] = React.useState<ITagCategory | null>(null);
+  const [showForm, setShowForm] = React.useState(false);
+
+  const handleEdit = (item: ITagCategory) => {
+    setEditing(item);
+    setShowForm(true);
+  };
+
+  const handleDelete = (id: string) => {
+    setCategories((prev) => prev.filter((c) => c.id !== id));
+  };
+
+  const handleSave = (item: ITagCategory) => {
+    setCategories((prev) => {
+      const exists = prev.some((c) => c.id === item.id);
+      if (exists) {
+        return prev.map((c) => (c.id === item.id ? item : c));
+      }
+      return [...prev, item];
+    });
+    setEditing(null);
+    setShowForm(false);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.container}>
+      <h1>Tag Categories</h1>
+      <button
+        onClick={() => {
+          setShowForm(true);
+          setEditing(null);
+        }}
+      >
+        Add New
+      </button>
+      {showForm && (
+        <TagCategoryForm
+          initialData={editing || undefined}
+          onSubmit={handleSave}
+          onCancel={() => setShowForm(false)}
+        />
+      )}
+      <div className={styles.grid}>
+        {categories.map((cat) => (
+          <TagCategoryCard
+            key={cat.id}
+            category={cat}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
