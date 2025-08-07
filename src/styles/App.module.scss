@@ -1,0 +1,17 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+button {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
