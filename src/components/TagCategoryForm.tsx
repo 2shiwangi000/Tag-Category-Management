@@ -39,7 +39,7 @@ const TagCategoryForm = ({ initialData, onSubmit, onCancel }: Props) => {
     return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input name="name" value={form.name} onChange={handleChange} placeholder="Name" required />
-      <input name="gameId" value={form.gameId} onChange={handleChange} placeholder="Game ID" required />
+      <input name="gameId" value={form.gameId} onChange={handleChange} placeholder="Tag ID" required />
       <input name="group.label" value={form.group.label} onChange={e => setForm({ ...form, group: { ...form.group, label: e.target.value } })} placeholder="Group Label" />
       <button type="submit">{initialData ? 'Update' : 'Create'}</button>
       <button type="button" onClick={onCancel}>Cancel</button>

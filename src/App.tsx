@@ -35,30 +35,34 @@ function App() {
   return (
     <div className={styles.container}>
       <h1>Tag Categories</h1>
-      <button
-        onClick={() => {
-          setShowForm(true);
-          setEditing(null);
-        }}
-      >
-        Add New
-      </button>
-      {showForm && (
-        <TagCategoryForm
-          initialData={editing || undefined}
-          onSubmit={handleSave}
-          onCancel={() => setShowForm(false)}
-        />
-      )}
-      <div className={styles.grid}>
-        {categories.map((cat) => (
-          <TagCategoryCard
-            key={cat.id}
-            category={cat}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
-        ))}
+      <div className={styles.layout}>
+        <div className={styles.formSection}>
+          <button
+            onClick={() => {
+              setShowForm(true);
+              setEditing(null);
+            }}
+          >
+            Add New
+          </button>
+          {showForm && (
+            <TagCategoryForm
+              initialData={editing || undefined}
+              onSubmit={handleSave}
+              onCancel={() => setShowForm(false)}
+            />
+          )}
+        </div>
+        <div className={styles.cardSection}>
+          {categories.map((cat) => (
+            <TagCategoryCard
+              key={cat.id}
+              category={cat}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

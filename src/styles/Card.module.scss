@@ -1,24 +1,72 @@
+// --- styles/Card.module.scss
+
 .card {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid #007bff;
+  height: auto;
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
-h3 {
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
   margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #222;
 }
 
-p {
+.card p {
   margin: 0.25rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-button {
-  margin-right: 0.5rem;
+.card ul {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card ul li {
+  list-style-type: disc;
+  margin-bottom: 0.25rem;
+}
+
+.card .buttons {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.card button {
   padding: 0.4rem 0.8rem;
-  border: none;
+  font-size: 0.85rem;
   border-radius: 4px;
+  border: none;
   cursor: pointer;
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.card button:first-of-type {
+  background-color: #1890ff;
+}
+
+.card button:hover {
+  opacity: 0.9;
 }
