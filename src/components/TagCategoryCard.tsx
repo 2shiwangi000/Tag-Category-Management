@@ -1,4 +1,3 @@
-import React from 'react'
 import type { ITagCategory } from '../interfaces/interfaces';
 import styles from '../styles/Card.module.scss';
 
