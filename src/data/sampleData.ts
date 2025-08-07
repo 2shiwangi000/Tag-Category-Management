@@ -1,4 +1,4 @@
-import { ITagCategory } from "../interfaces/interfaces";
+import type { ITagCategory } from "../interfaces/interfaces";
 
 export const sampleTagCategories: ITagCategory[] = [
   {
@@ -6,21 +6,48 @@ export const sampleTagCategories: ITagCategory[] = [
     gameId: "6622504e845d0e572cddc306",
     group: {
       label: "ball",
-      value: "ball"
+      value: "ball",
     },
     isParentTag: true,
     isReplay: false,
     metadataConfig: [
-      { component: "input", key: "eventId", label: "Event Id", readOnly: true, type: "text" },
-      { component: "input", key: "over", label: "Over", required: true, type: "text" },
+      {
+        component: "input",
+        key: "eventId",
+        label: "Event Id",
+        readOnly: true,
+        type: "text",
+      },
+      {
+        component: "input",
+        key: "over",
+        label: "Over",
+        required: true,
+        type: "text",
+      },
       { component: "input", key: "rating", label: "Rating", type: "number" },
-      { component: "select", key: "actionBy", label: "Ball By", required: true, mode: "query", multiple: false, query: "players" },
-      { component: "select", key: "ballType", label: "Ball Type", required: false, mode: "options", multiple: false, options: [
+      {
+        component: "select",
+        key: "actionBy",
+        label: "Ball By",
+        required: true,
+        mode: "query",
+        multiple: false,
+        query: "players",
+      },
+      {
+        component: "select",
+        key: "ballType",
+        label: "Ball Type",
+        required: false,
+        mode: "options",
+        multiple: false,
+        options: [
           { label: "UnderArm", value: "under-arm" },
-          { label: "OverArm", value: "over-arm" }
+          { label: "OverArm", value: "over-arm" },
         ],
-        query: "players"
-      }
+        query: "players",
+      },
     ],
     name: "Ball",
     nameStructure: ["name", "eventId", "over"],
@@ -30,18 +57,39 @@ export const sampleTagCategories: ITagCategory[] = [
       "no-ball": {
         label: "No Ball",
         config: [
-          { component: "input", key: "runs", label: "Runs", required: true, type: "number" },
-          { component: "select", key: "outcome", label: "Outcome", required: true, mode: "options", multiple: false, options: [
+          {
+            component: "input",
+            key: "runs",
+            label: "Runs",
+            required: true,
+            type: "number",
+          },
+          {
+            component: "select",
+            key: "outcome",
+            label: "Outcome",
+            required: true,
+            mode: "options",
+            multiple: false,
+            options: [
               { label: "Wicket", value: "wicket" },
               { label: "Six", value: "six" },
-              { label: "Four", value: "four" }
-            ]
+              { label: "Four", value: "four" },
+            ],
           },
-          { component: "select", key: "actionBy", label: "Injury", mode: "query", multiple: true, query: "players" }
-        ]
-      }
+          {
+            component: "select",
+            key: "actionBy",
+            label: "Injury",
+            mode: "query",
+            multiple: true,
+            query: "players",
+          },
+        ],
+      },
     },
     createdAt: 1754571732334,
-    deleted: false
-  }
+    lastUpdatedAt: 1754571732334,
+    deleted: false,
+  },
 ];
