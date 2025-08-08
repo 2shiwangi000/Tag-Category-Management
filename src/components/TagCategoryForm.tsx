@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import type { ITagCategory } from '../interfaces/interfaces';
 import styles from '../styles/Form.module.scss';
 
@@ -36,15 +36,21 @@ const TagCategoryForm = ({ initialData, onSubmit, onCancel }: Props) => {
     e.preventDefault();
     onSubmit({ ...form, lastUpdatedAt: Date.now() });
   };
-    return (
+
+  return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input name="name" value={form.name} onChange={handleChange} placeholder="Name" required />
-      <input name="gameId" value={form.gameId} onChange={handleChange} placeholder="Tag ID" required />
-      <input name="group.label" value={form.group.label} onChange={e => setForm({ ...form, group: { ...form.group, label: e.target.value } })} placeholder="Group Label" />
+      <input name="gameId" value={form.gameId} onChange={handleChange} placeholder="Game ID" required />
+      <input
+        name="group.label"
+        value={form.group.label}
+        onChange={e => setForm({ ...form, group: { ...form.group, label: e.target.value } })}
+        placeholder="Group Label"
+      />
       <button type="submit">{initialData ? 'Update' : 'Create'}</button>
       <button type="button" onClick={onCancel}>Cancel</button>
     </form>
   );
-}
+};
 
-export default TagCategoryForm
+export default TagCategoryForm;
