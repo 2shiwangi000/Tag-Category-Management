@@ -8,6 +8,13 @@ type Props = {
 };
 
 const TagCategoryCard = ({ category, onEdit, onDelete }: Props) => {
+
+    const handleDeleteClick = () => {
+    if (window.confirm(`Are you sure you want to delete "${category.name}"?`)) {
+      onDelete(category.id);
+    }
+  };
+
   return (
     <div className={styles.card}>
       <h3>{category.name}</h3>
@@ -25,7 +32,7 @@ const TagCategoryCard = ({ category, onEdit, onDelete }: Props) => {
 
       <div className={styles.buttons}>
         <button onClick={() => onEdit(category)}>Edit</button>
-        <button onClick={() => onDelete(category.id)}>Delete</button>
+        <button onClick={() => handleDeleteClick()}>Delete</button>
       </div>
     </div>
   );
