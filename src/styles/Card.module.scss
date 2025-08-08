@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   border-left: 6px solid #007bff;
-  height: auto;
+  height: fit-content;
   background: linear-gradient(145deg, #ffffff, #f5f7fa);
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -47,10 +47,11 @@
 }
 
 .card .buttons {
-  margin-top: auto;
+  margin-top: 1rem;
   display: flex;
   justify-content: flex-start;
   gap: 0.5rem;
+
 }
 
 .card button {

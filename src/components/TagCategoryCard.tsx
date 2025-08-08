@@ -12,15 +12,16 @@ const TagCategoryCard = ({ category, onEdit, onDelete }: Props) => {
     <div className={styles.card}>
       <h3>{category.name}</h3>
       <p><strong>Status:</strong> {category.status}</p>
+      <p><strong>Precision Type:</strong> {category.precisionType}</p>
       <p><strong>Group:</strong> {category.group.label}</p>
 
-      {category.metadataConfig?.length > 0 && (
+      {/* {category.metadataConfig?.length > 0 && (
         <ul>
           {category.metadataConfig.map((meta, index) => (
             <li key={index}>{meta.label}</li>
           ))}
         </ul>
-      )}
+      )} */}
 
       <div className={styles.buttons}>
         <button onClick={() => onEdit(category)}>Edit</button>
